@@ -23,7 +23,7 @@ class PageWithMap extends DemoPage {
   Render a map at the provided lat,lon, zoom from the editing functions, 
   */
   public function MapWithLines() {
-    $map = $this->owner->RenderMap();
+    $map = $this->owner->getRenderableMap();
     $map->setZoom( $this->ZoomLevel );
     $map->setAdditionalCSSClasses( 'fullWidthMap' );
     $map->setShowInlineMapDivStyle( true );
@@ -57,7 +57,7 @@ class PageWithMap extends DemoPage {
       return ''; // don't render a map
     }
 
-  	$map = $flickrPhotos->RenderMap();
+  	$map = $flickrPhotos->getRenderableMap();
     $map->setZoom( $this->ZoomLevel );
     $map->setAdditionalCSSClasses( 'fullWidthMap' );
     $map->setShowInlineMapDivStyle( true );
