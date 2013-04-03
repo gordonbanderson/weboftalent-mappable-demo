@@ -1,5 +1,6 @@
 .mappable {
 	height: 300px;
 	width: 100%;
-	background: yellow;
+	background: blue;
+	margin-bottom: 2em;
 }
