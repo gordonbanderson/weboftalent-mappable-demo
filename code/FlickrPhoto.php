@@ -135,15 +135,15 @@ class FlickrPhoto extends DataObject implements Mappable {
     return $this->Lon;
   }
 
-  public function getMapContent() {
+  public function getMappableMapContent() {
     return MapUtil::sanitize($this->renderWith('FlickrPhotoMapInfoWindow'));
   }
 
-  public function getMapCategory() {
+  public function getMappableMapCategory() {
     return 'photo';
   }
 
-  public function getMapPin() {
+  public function getMappableMapPin() {
     return false; //standard pin
   }
 
