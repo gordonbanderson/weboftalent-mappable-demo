@@ -3,3 +3,18 @@
 	width: 100%;
 	margin-bottom: 2em;
 }
+
+.prevNextNavigation {
+	padding-top: 10px;
+	padding-bottom: 30px;
+}
+
+.prevNextNavigation a {
+	display: inline;
+}
+
+.prevNextNavigation a.next {
+		float:right;
+		
+}
+
