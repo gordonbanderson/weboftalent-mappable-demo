@@ -1,5 +1,16 @@
 <% require css(weboftalent-mappable-demo/css/mapdemo.css) %>
-$BriefDescription
+<% include PrevNextPageNav %>
+
+<div class="content-container unit size3of4 lastUnit">
+	<article>
+<h1>PWML $Title</h1>
+	$BriefDescription
 $BasicMap
-<h1>$Title</h1>
 $Content
+</article>
+
+<% include PrevNextPageNav %>
+
+		$Form
+		$PageComments
+</div>
