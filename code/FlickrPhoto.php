@@ -1,5 +1,12 @@
 <?php
 
+use SilverStripe\ORM\FieldType\DBBoolean;
+use SilverStripe\ORM\DB;
+use SilverStripe\ORM\DataList;
+use SilverStripe\Forms\Tab;
+use SilverStripe\Forms\TabSet;
+use SilverStripe\ORM\DataObject;
+
 class FlickrPhoto extends DataObject implements Mappable {
 
 
@@ -28,7 +35,7 @@ class FlickrPhoto extends DataObject implements Mappable {
         'Accuracy' => 'Int',
         'FlickrPlaceID' => 'Varchar(255)',
         'Rotation' => 'Int',
-        'IsPublic' => 'Boolean',
+        'IsPublic' => DBBoolean::class,
         'Aperture' => 'Float',
         'ShutterSpeed' => 'VarChar',
         'ImageUniqueID' => 'Varchar',
@@ -59,7 +66,7 @@ class FlickrPhoto extends DataObject implements Mappable {
         'OriginalHeight' => 'Int',
         'OriginalWidth' => 'Int',
         'TimeShiftHours' => 'Int',
-        'PromoteToHomePage' => 'Boolean'
+        'PromoteToHomePage' => DBBoolean::class
         //TODO - place id
     );
 

@@ -1,4 +1,9 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use PageController;
 /**
 * Defines the StaffPage page type
 */
@@ -11,7 +16,7 @@ class DemoPage extends Page {
 
 
   static $has_one = array(
-  'Photo' => 'Image'
+  'Photo' => Image::class
   );
 
   // allow restful access for migration purposes
@@ -33,7 +38,7 @@ class DemoPage extends Page {
 
 }
 
-class DemoPage_Controller extends Page_Controller {
+class DemoPage_Controller extends PageController {
   
 }
 

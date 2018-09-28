@@ -1,11 +1,16 @@
 <?php
+
+use SilverStripe\Assets\Image;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use PageController;
 class DemoPageFolder extends Page {
 
 
   static $allowed_children = array( 'DemoPage', 'DemoPageFolder','ContactPage');
 
   static $has_one = array(
-    'Photo' => 'Image'
+    'Photo' => Image::class
   );
 
   static $db = array(
@@ -21,7 +26,7 @@ class DemoPageFolder extends Page {
   }
 }
 
-class DemoPageFolder_Controller extends Page_Controller {
+class DemoPageFolder_Controller extends PageController {
   
 
 }

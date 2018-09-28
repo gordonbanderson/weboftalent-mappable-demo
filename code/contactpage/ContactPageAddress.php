@@ -1,4 +1,10 @@
 <?php
+
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\Tab;
+use SilverStripe\Forms\TabSet;
+use SilverStripe\Forms\TextField;
+use SilverStripe\ORM\DataObject;
 class ContactPageAddress extends DataObject {
 	static $db = array(
 		'PostalAddress' => 'Text'

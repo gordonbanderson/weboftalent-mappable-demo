@@ -1,10 +1,14 @@
 <?php
+
+use SilverStripe\ORM\FieldType\DBBoolean;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\ORM\DataList;
 class PageWithMap extends DemoPage {
 
   public static $db = array(
-    'ShowExampleLines' => 'Boolean',
-    'ShowExampleDataset' => 'Boolean',
-    'ClusterExampleDataset' => 'Boolean'
+    'ShowExampleLines' => DBBoolean::class,
+    'ShowExampleDataset' => DBBoolean::class,
+    'ClusterExampleDataset' => DBBoolean::class
   );
 
   function getCMSFields() {
