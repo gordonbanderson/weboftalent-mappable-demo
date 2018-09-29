@@ -1,4 +1,5 @@
 <?php
+namespace WebOfTalent\MappableDemo;
 
 use SilverStripe\ORM\FieldType\DBBoolean;
 use SilverStripe\Forms\CheckboxField;
@@ -6,8 +7,9 @@ use SilverStripe\ORM\DataList;
 
 class PageWithMap extends DemoPage
 {
+    private static $table_name = 'PageWithMap';
 
-    public static $db = array(
+    private static $db = array(
     'ShowExampleLines' => DBBoolean::class,
     'ShowExampleDataset' => DBBoolean::class,
     'ClusterExampleDataset' => DBBoolean::class
@@ -76,9 +78,4 @@ class PageWithMap extends DemoPage
 
         return $map;
     }
-}
-
-class PageWithMap_Controller extends DemoPage_Controller
-{
-
 }

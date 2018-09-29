@@ -1,28 +1,28 @@
 <?php
+namespace WebOfTalent\MappableDemo;
 
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
 /**
-* Defines the StaffPage page type
+* Defines the DemoPage page type
 */
-class DemoPage extends Page
+class DemoPage extends \Page
 {
+    private static $table_name = 'DemoPage';
 
-    static $db = array(
-    'BriefDescription' => 'HTMLText'
+    private static $db = array(
+        'BriefDescription' => 'HTMLText'
     );
 
-
-
-    static $has_one = array(
-    'Photo' => Image::class
+    private static $has_one = array(
+        'Photo' => Image::class
     );
 
-  // allow restful access for migration purposes
-    static $api_access = true;
-    
+    // allow restful access for migration purposes
+    private static $api_access = true;
+
   
     function getCMSFields()
     {
@@ -32,9 +32,4 @@ class DemoPage extends Page
         $fields->addFieldToTab("Root.Main", new HTMLEditorField('BriefDescription'), 'Content');
         return $fields;
     }
-}
-
-class DemoPage_Controller extends PageController
-{
-  
 }

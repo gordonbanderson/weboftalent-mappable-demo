@@ -1,13 +1,8 @@
 <?php
 
-// layers are configured in _config.php
+namespace WebOfTalent\MappableDemo;
 
 class PageWithMapAndLayers extends PageWithMap
-{
-
-}
-
-class PageWithMapAndLayers_Controller extends DemoPage_Controller
 {
 
 }

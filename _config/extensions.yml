@@ -1,0 +1,19 @@
+---
+Name: mappable-demo
+---
+WebOfTalent\MappableDemo\Contact\ContactPageAddress:
+  extensions:
+    - WebOfTalent\Mappable\MapExtension
+
+WebOfTalent\MappableDemo\PageWithMap:
+  extensions:
+    - WebOfTalent\Mappable\MapExtension
+
+WebOfTalent\MappableDemo\PageWithMarkerSets:
+  extensions:
+    - WebOfTalent\Mappable\MapExtension
+    - WebOfTalent\Mappable\MapLayerExtension
+
+WebOfTalent\MappableDemo\PageWithMapAndLayers:
+  extensions:
+    - WebOfTalent\Mappable\MapLayerExtension

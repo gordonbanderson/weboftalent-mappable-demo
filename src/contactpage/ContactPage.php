@@ -1,15 +1,16 @@
 <?php
+namespace WebOfTalent\MappableDemo\ContactPage;
 
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 use SilverStripe\Forms\GridField\GridFieldPaginator;
 use SilverStripe\Forms\GridField\GridField;
-use PageController;
+use WebOfTalent\MappableDemo\DemoPage;
 
 class ContactPage extends DemoPage
 {
 
-    static $has_many = array(
+    private static $has_many = array(
     'Locations' => 'ContactPageAddress'
     );
 
@@ -25,10 +26,4 @@ class ContactPage extends DemoPage
 
         return $fields;
     }
-}
-
-class ContactPage_Controller extends PageController
-{
-
-
 }

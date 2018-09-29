@@ -1,4 +1,5 @@
 <?php
+namespace WebOfTalent\MappableDemo\ContactPage;
 
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\Tab;
@@ -8,14 +9,16 @@ use SilverStripe\ORM\DataObject;
 
 class ContactPageAddress extends DataObject
 {
-    static $db = array(
+    private static $table_name = 'ContactPageAddress';
+
+    private static $db = array(
         'PostalAddress' => 'Text'
     );
 
-    static $has_one = array( 'ContactPage' => 'ContactPage' );
+    private static $has_one = array( 'ContactPage' => 'ContactPage' );
 
 
-    public static $summary_fields = array(
+    private  static $summary_fields = array(
         'PostalAddress' => 'PostalAddress'
     );
 

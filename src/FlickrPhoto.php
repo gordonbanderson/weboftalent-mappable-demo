@@ -1,5 +1,7 @@
 <?php
+namespace WebOfTalent\MappableDemo;
 
+use SilverStripe\Core\ClassInfo;
 use SilverStripe\ORM\FieldType\DBBoolean;
 use SilverStripe\ORM\DB;
 use SilverStripe\ORM\DataList;
@@ -7,18 +9,17 @@ use SilverStripe\Forms\Tab;
 use SilverStripe\Forms\TabSet;
 use SilverStripe\ORM\DataObject;
 
-class FlickrPhoto extends DataObject implements Mappable
+class FlickrPhoto extends DataObject //implements \WebOfTalent\Mappable\Mappable
 {
+    private static $table_name = 'DemoFlickrPhoto';
 
-
-    static $searchable_fields = array(
+    private static $searchable_fields = array(
         'Title',
         'Description',
         'FlickrID'
     );
 
-
-    static $db = array(
+    private static $db = array(
         'Title' => 'Varchar(255)',
         'FlickrID' => 'Varchar',
         'Description' => 'HTMLText',
@@ -38,7 +39,7 @@ class FlickrPhoto extends DataObject implements Mappable
         'Rotation' => 'Int',
         'IsPublic' => DBBoolean::class,
         'Aperture' => 'Float',
-        'ShutterSpeed' => 'VarChar',
+        'ShutterSpeed' => 'Varchar',
         'ImageUniqueID' => 'Varchar',
         'FocalLength35mm' => 'Int',
         'ISO' => 'Int',
@@ -72,28 +73,28 @@ class FlickrPhoto extends DataObject implements Mappable
     );
 
 
-
-
-    public static $summary_fields = array(
+    private  static $summary_fields = array(
         'Thumbnail' => 'Thumbnail',
         'Title' => 'Title',
         'TakenAt' => 'TakenAt'
     );
 
 
-    // imoprt som
+    /*
+     * @todo Fix
+     * 
     public function requireDefaultRecords()
     {
         parent::requireDefaultRecords();
         DB::alteration_message("Checking for default flickr photo records for testing", "changed");
 
 
-        if (DB::getConn()->hasTable('FlickrPhoto')) {
+        if (ClassInfo::hasTable('FlickrPhoto')) {
             DB::alteration_message('T1');
             $nrecords = DataList::create('FlickrPhoto')->count();
             if ($nrecords == 0) {
                 DB::alteration_message('T2');
-                $jsonFile = BASE_PATH . '/' . DEMO_MODULE_PATH."/data/images.json";
+                $jsonFile = "weboftalent/mappabledemo: /data/images.json";
                 DB::alteration_message("IMAGE PATH:".$jsonFile);
                 $json_array = file($jsonFile);
                 DB::alteration_message("CLASS OF JSON:".$json_array);
@@ -102,13 +103,13 @@ class FlickrPhoto extends DataObject implements Mappable
                 foreach (json_decode($json) as $imagejson) {
                     $ct++;
                     DB::alteration_message($ct.' Imported image:'.$imagejson->Title);
-                    $fp = new FlickrPhoto();
+                    $fp = FlickrPhoto::create();
                         $fp->Lat = $imagejson->Lat;
                         $fp->Lon = $imagejson->Lon;
                         $fp->ThumbnalURL = $imagejson->ThumbnalURL;
                         $fp->MediumURL = $imagejson->MediumURL;
                         $fp->SmallURL = $imagejson->SmallURL;
-                        $fp->LargeURL = $LargeURL->Lat;
+                        $fp->LargeURL = $imagejson->LargeURL;
                         $fp->Title = $imagejson->Title;
                         $fp->Description = $imagejson->Description;
                         $fp->write();
@@ -116,6 +117,7 @@ class FlickrPhoto extends DataObject implements Mappable
             }
         }
     }
+    */
 
 
 
