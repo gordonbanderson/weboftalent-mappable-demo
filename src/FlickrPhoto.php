@@ -7,7 +7,8 @@ use SilverStripe\Forms\Tab;
 use SilverStripe\Forms\TabSet;
 use SilverStripe\ORM\DataObject;
 
-class FlickrPhoto extends DataObject implements Mappable {
+class FlickrPhoto extends DataObject implements Mappable
+{
 
 
     static $searchable_fields = array(
@@ -81,15 +82,16 @@ class FlickrPhoto extends DataObject implements Mappable {
 
 
     // imoprt som
-    public function requireDefaultRecords() {
+    public function requireDefaultRecords()
+    {
         parent::requireDefaultRecords();
-        DB::alteration_message( "Checking for default flickr photo records for testing", "changed" );
+        DB::alteration_message("Checking for default flickr photo records for testing", "changed");
 
 
-        if ( DB::getConn()->hasTable( 'FlickrPhoto' ) ) {
+        if (DB::getConn()->hasTable('FlickrPhoto')) {
             DB::alteration_message('T1');
-           $nrecords = DataList::create('FlickrPhoto')->count();
-           if ($nrecords == 0) {
+            $nrecords = DataList::create('FlickrPhoto')->count();
+            if ($nrecords == 0) {
                 DB::alteration_message('T2');
                 $jsonFile = BASE_PATH . '/' . DEMO_MODULE_PATH."/data/images.json";
                 DB::alteration_message("IMAGE PATH:".$jsonFile);
@@ -109,9 +111,9 @@ class FlickrPhoto extends DataObject implements Mappable {
                         $fp->LargeURL = $LargeURL->Lat;
                         $fp->Title = $imagejson->Title;
                         $fp->Description = $imagejson->Description;
-                        $fp->write();    
+                        $fp->write();
                 }
-           }
+            }
         }
     }
 
@@ -123,43 +125,40 @@ class FlickrPhoto extends DataObject implements Mappable {
     /*
   Use the scaffolding fields
   */
-    function getCMSFields() {
+    function getCMSFields()
+    {
         $fields = parent::getCMSFields();
 
-        $fields->push( new TabSet( "Root", $mainTab = new Tab( "Main" ) ) );
-        $mainTab->setTitle( _t( 'SiteTree.TABMAIN', "Main" ) );
+        $fields->push(new TabSet("Root", $mainTab = new Tab("Main")));
+        $mainTab->setTitle(_t('SiteTree.TABMAIN', "Main"));
 
         return $fields;
     }
 
 
     // mappable methods
-  public function getMappableLatitude() {
-    return $this->Lat;
-  }
+    public function getMappableLatitude()
+    {
+        return $this->Lat;
+    }
 
-  public function getMappableLongitude() {
-    return $this->Lon;
-  }
+    public function getMappableLongitude()
+    {
+        return $this->Lon;
+    }
 
-  public function getMappableMapContent() {
-    return MapUtil::sanitize($this->renderWith('FlickrPhotoMapInfoWindow'));
-  }
+    public function getMappableMapContent()
+    {
+        return MapUtil::sanitize($this->renderWith('FlickrPhotoMapInfoWindow'));
+    }
 
-  public function getMappableMapCategory() {
-    return 'photo';
-  }
+    public function getMappableMapCategory()
+    {
+        return 'photo';
+    }
 
-  public function getMappableMapPin() {
-    return false; //standard pin
-  }
-
-
-
-
-
-
-
+    public function getMappableMapPin()
+    {
+        return false; //standard pin
+    }
 }
-
-?>

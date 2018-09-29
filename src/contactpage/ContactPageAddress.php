@@ -5,28 +5,30 @@ use SilverStripe\Forms\Tab;
 use SilverStripe\Forms\TabSet;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataObject;
-class ContactPageAddress extends DataObject {
-	static $db = array(
-		'PostalAddress' => 'Text'
-	);
 
-	static $has_one = array( 'ContactPage' => 'ContactPage' );
+class ContactPageAddress extends DataObject
+{
+    static $db = array(
+        'PostalAddress' => 'Text'
+    );
 
-
-	public static $summary_fields = array(
-		'PostalAddress' => 'PostalAddress'
-	);
+    static $has_one = array( 'ContactPage' => 'ContactPage' );
 
 
-	function getCMSFields() {
-		$fields = new FieldList();
-		$fields->push( new TabSet( "Root", $mainTab = new Tab( "Main" ) ) );
-		$mainTab->setTitle( _t( 'SiteTree.TABMAIN', "Main" ) );
-		$fields->addFieldToTab( "Root.Main", new TextField( 'PostalAddress' ) );
+    public static $summary_fields = array(
+        'PostalAddress' => 'PostalAddress'
+    );
 
-		$this->extend( 'updateCMSFields', $fields );
 
-		return $fields;
-	}
+    function getCMSFields()
+    {
+        $fields = new FieldList();
+        $fields->push(new TabSet("Root", $mainTab = new Tab("Main")));
+        $mainTab->setTitle(_t('SiteTree.TABMAIN', "Main"));
+        $fields->addFieldToTab("Root.Main", new TextField('PostalAddress'));
+
+        $this->extend('updateCMSFields', $fields);
+
+        return $fields;
+    }
 }
-?>
